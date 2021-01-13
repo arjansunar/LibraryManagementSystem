@@ -1,7 +1,11 @@
 package GUI;
 
+import GUI.route.Home;
+
 public class Main {
   public static void main(String[] args) {
-    CreateFrame frame = new CreateFrame(500,500);
+    //Create home page
+    Home.createHomePage();
   }
+
 }
