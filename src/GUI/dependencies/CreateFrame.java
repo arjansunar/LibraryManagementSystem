@@ -1,7 +1,7 @@
-package GUI;
+package GUI.dependencies;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.FlowLayout;
 
 public class CreateFrame extends JFrame {
   public CreateFrame(int width,int height,String title){

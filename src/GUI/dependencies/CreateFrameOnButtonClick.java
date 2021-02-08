@@ -1,15 +1,11 @@
 package GUI.dependencies;
 
-import GUI.CreateFrame;
-
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class CreateFrameOnButtonClick {
-  public static JFrame createFrame(CreateFrame frame, String text){
+  public static JFrame createFrame(CreateFrame frame, String text, int  height){
     frame.dispose();
-    CreateFrame bookFrame= new CreateFrame(500,500,text);
-    var title= new JLabel(text);
-    bookFrame.add(title);
+    CreateFrame bookFrame= new CreateFrame(550,height,text);
     System.out.println(text);
     return bookFrame;
   }

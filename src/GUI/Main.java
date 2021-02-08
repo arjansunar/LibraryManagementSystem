@@ -7,5 +7,4 @@ public class Main {
     //Create home page
     Home.createHomePage();
   }
-
 }
