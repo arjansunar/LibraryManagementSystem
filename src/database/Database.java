@@ -1,3 +1,5 @@
+//this class has all the methods required for the GUI to
+//connect and make changes to the database
 package database;
 
 import database.model.Book;
@@ -21,10 +23,12 @@ public class Database {
   PreparedStatement statement;
   ResultSet resultSet;
 
+  //creates a connection to the db at object creation
   public Database() throws SQLException {
     con = DriverManager.getConnection(url,username,pass);
   }
 
+  //adds a record in the books table
   public void addBook(Book book) throws SQLException {
     sql= "Insert into books Values( ?,?,?,?,?);";
     statement= con.prepareStatement(sql);
@@ -39,6 +43,7 @@ public class Database {
     statement.close();
   }
 
+  //retrieves all the books stored in db
   public ArrayList<Book> viewBook() throws SQLException {
     sql= "Select * from books;";
     statement= con.prepareStatement(sql);
@@ -59,6 +64,7 @@ public class Database {
     return allBook;
   }
 
+  //deletes a book from db according to book ID
   public void deleteBook( String bookID) throws SQLException {
     sql= "Delete from books where Book_id = ?;";
     statement= con.prepareStatement(sql);
@@ -69,6 +75,7 @@ public class Database {
     statement.close();
   }
 
+  //updates the name of a book in db
   public void updateBookName(String bookID,String value) throws SQLException{
     sql= "Update books set Name =? where Book_id =?;";
     statement= con.prepareStatement(sql);
@@ -79,6 +86,8 @@ public class Database {
     statement.executeUpdate();
     statement.close();
   }
+
+  //updates the name of author of a book in db
   public void updateBookAuthor(String bookID,String value) throws SQLException{
     sql= "Update books set Author =? where Book_id =?;";
     statement= con.prepareStatement(sql);
@@ -89,6 +98,8 @@ public class Database {
     statement.executeUpdate();
     statement.close();
   }
+
+  //updates the price of a book in db
   public void updateBook(String bookID,int value) throws SQLException{
     sql= "Update books set Price=? where Book_id =?;";
     statement= con.prepareStatement(sql);
@@ -99,6 +110,8 @@ public class Database {
     statement.executeUpdate();
     statement.close();
   }
+
+  //updates the availability of a book in db
   public void updateBook(String bookID, boolean value) throws SQLException{
     sql= "Update books set Available=? where Book_id =?;";
     statement= con.prepareStatement(sql);
@@ -109,6 +122,8 @@ public class Database {
     statement.executeUpdate();
     statement.close();
   }
+
+  //closes the connection to the db
   public static void closeConnection() throws SQLException {
     con.close();
   }

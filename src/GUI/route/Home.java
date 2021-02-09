@@ -1,10 +1,20 @@
+//this class represents the frame that is seen when the application
+//first runs
 package GUI.route;
 
 import GUI.dependencies.CreateFrame;
 import database.Database;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.BoxLayout;
+
+import java.awt.GridLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
 import java.sql.SQLException;
 
 public class Home {

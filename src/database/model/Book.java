@@ -1,12 +1,18 @@
+//Book class helps to create an object that represents the values stored in the db
+//and is a representation for a "book" object
+
 package database.model;
 
 public class Book {
+
+  //fields
   private String bookId;
   private String name;
   private int price;
   private boolean available;
   private String author;
 
+  //constructor
   public Book(String bookId, String name, int price, boolean available, String author) {
     this.bookId = bookId;
     this.name = name;
@@ -15,6 +21,7 @@ public class Book {
     this.author = author;
   }
 
+  //getters
   public String getBookId() {
     return bookId;
   }
@@ -35,6 +42,7 @@ public class Book {
     return author;
   }
 
+  //toString method
   @Override
   public String toString() {
     return "Book{" +
@@ -46,23 +54,4 @@ public class Book {
             '}';
   }
 
-  public void setBookId(String bookId) {
-    this.bookId = bookId;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setPrice(int price) {
-    this.price = price;
-  }
-
-  public void setAvailable(boolean available) {
-    this.available = available;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
 }

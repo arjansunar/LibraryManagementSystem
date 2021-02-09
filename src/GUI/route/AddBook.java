@@ -1,15 +1,22 @@
+//this class represents the frame where
+// user is able to add books to the system
+
 package GUI.route;
 
-import GUI.dependencies.CreateFrame;
-import GUI.dependencies.CreateFrameOnButtonClick;
-import GUI.dependencies.GoHomeButton;
+//Database imports
 import database.Database;
 import database.model.Book;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+//Gui imports
+import GUI.dependencies.CreateFrame;
+import GUI.dependencies.CreateFrameOnButtonClick;
+import GUI.dependencies.GoHomeButton;
+
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.BoxLayout;
@@ -21,6 +28,8 @@ import java.sql.SQLException;
 
 public class AddBook {
   public static void createAddBook(CreateFrame frame, String text, Database db) throws SQLException {
+
+    //creating the addFrame and disabling the previous frame
     var addFrame= CreateFrameOnButtonClick.createFrame(frame,text,300);
     var homeButton =GoHomeButton.createButton(addFrame,frame);
 
@@ -52,22 +61,29 @@ public class AddBook {
     rightPanel.setLayout(new GridLayout(0,2,5,10));
     panel.setLayout(new GridLayout(0,2,15,1));
 
-    //adding action listener
+    //adding action listeners
     addBookButton.addActionListener(e->{
-      String bookId = bookIdTextField.getText();
-      String name= bookTextField.getText();
-      int price= Integer.parseInt(bookPriceTextField.getText());
-      boolean available =availableButton.isSelected();
-      String author = bookAuthorTextField.getText();
+      //checking if no values are passed
+      if (!( bookIdTextField.getText().equals("")
+              || bookTextField.getText().equals("")
+              || bookPriceTextField.getText().equals("")
+              || bookAuthorTextField.getText().equals(""))) {
+        String bookId = bookIdTextField.getText();
+        String name= bookTextField.getText();
+        int price= Integer.parseInt(bookPriceTextField.getText());
+        boolean available =availableButton.isSelected();
+        String author = bookAuthorTextField.getText();
 
-      Book book = new Book(bookId,name,price,available,author);
-      System.out.println(book);
-      try {
-        db.addBook(book);
-      } catch (SQLException throwables) {
-        throwables.printStackTrace();
+        Book book = new Book(bookId, name, price, available, author);
+        System.out.println(book);
+        try {
+          db.addBook(book);
+        } catch (SQLException throwables) {
+          throwables.printStackTrace();
+        }
+      }else{
+        JOptionPane.showMessageDialog(addFrame,"enter the values");
       }
-
 
     });
 
