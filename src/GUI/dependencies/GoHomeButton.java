@@ -6,7 +6,6 @@ import javax.swing.JButton;
 public class GoHomeButton {
   public static JButton createButton(JFrame currentFrame,JFrame homePage){
     var home = new JButton("Go Home");
-//    currentFrame.add(home);
     home.addActionListener(al -> {
       currentFrame.dispose();
       homePage.setVisible(true);

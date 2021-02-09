@@ -45,4 +45,24 @@ public class Book {
             ", author='" + author + '\'' +
             '}';
   }
+
+  public void setBookId(String bookId) {
+    this.bookId = bookId;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setPrice(int price) {
+    this.price = price;
+  }
+
+  public void setAvailable(boolean available) {
+    this.available = available;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
 }

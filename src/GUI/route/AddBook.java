@@ -20,7 +20,7 @@ import java.awt.Dimension;
 import java.sql.SQLException;
 
 public class AddBook {
-  public static void createAddBook(CreateFrame frame, String text, Database db){
+  public static void createAddBook(CreateFrame frame, String text, Database db) throws SQLException {
     var addFrame= CreateFrameOnButtonClick.createFrame(frame,text,300);
     var homeButton =GoHomeButton.createButton(addFrame,frame);
 
@@ -43,7 +43,6 @@ public class AddBook {
     var buttonGroup = new ButtonGroup();
     var availableButton= new JRadioButton("Available");
     var notAvailableButton = new JRadioButton("Not Available");
-
     var addBookButton= new JButton("Add Book");
 
     buttonGroup.add(availableButton);
